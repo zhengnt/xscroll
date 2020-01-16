@@ -133,7 +133,8 @@ Util.extend(SimuScroll, Core, {
    * @return {number} scrollTop
    */
   getScrollTop: function() {
-    var transY = window.getComputedStyle(this.container)[transform].match(/[-\d\.*\d*]+/g);
+    //var transY = window.getComputedStyle(this.container)[transform].match(/[-\d\.*\d*]+/g);
+    var transY = window.getComputedStyle(this.container)[transform].match(/[-\d\.*\d*e\-\d]+/g);
     return transY ? Math.round(transY[5]) === 0 ? 0 : -Math.round(transY[5]) : 0;
   },
   /**
@@ -142,7 +143,8 @@ Util.extend(SimuScroll, Core, {
    * @return {number} scrollLeft
    */
   getScrollLeft: function() {
-    var transX = window.getComputedStyle(this.content)[transform].match(/[-\d\.*\d*]+/g);
+    //var transX = window.getComputedStyle(this.content)[transform].match(/[-\d\.*\d*]+/g);
+    var transX = window.getComputedStyle(this.content)[transform].match(/[-\d\.*\d*e\-\d]+/g);
     return transX ? Math.round(transX[4]) === 0 ? 0 : -Math.round(transX[4]) : 0;
   },
   /**
